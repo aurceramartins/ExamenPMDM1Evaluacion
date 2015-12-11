@@ -22,6 +22,9 @@ public class ItemListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_app_bar);
 
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
@@ -54,9 +57,7 @@ public class ItemListActivity extends AppCompatActivity
     @Override
     public void onItemSelected(String id) {
         if (mTwoPane) {
-            // In two-pane mode, show the detail view in this activity by
-            // adding or replacing the detail fragment using a
-            // fragment transaction.
+
             Bundle arguments = new Bundle();
             arguments.putString(ItemDetailFragment.ARG_ITEM_ID, id);
             ItemDetailFragment fragment = new ItemDetailFragment();
@@ -65,12 +66,22 @@ public class ItemListActivity extends AppCompatActivity
                     .replace(R.id.item_detail_container, fragment)
                     .commit();
 
+
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, ItemDetailActivity.class);
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
-            startActivityForResult(detailIntent,1);
+            startActivityForResult(detailIntent, 1);
+        }
+        if (getResources().getBoolean(R.bool.dual_panel)==true){
+            // text.setText("Land");
+            Toast.makeText(getBaseContext(), "Tumbado", Toast.LENGTH_SHORT).show();
+
+        }
+        else if (getResources().getBoolean(R.bool.dual_panel)==false){
+            // text.setText("Portrait");
+            Toast.makeText(getBaseContext(), "Portrait", Toast.LENGTH_SHORT).show();
         }
     }
 
