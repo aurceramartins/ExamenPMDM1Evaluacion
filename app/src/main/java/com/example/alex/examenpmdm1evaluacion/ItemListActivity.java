@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ItemListActivity extends AppCompatActivity
         implements ItemListFragment.Callbacks {
@@ -67,15 +70,16 @@ public class ItemListActivity extends AppCompatActivity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, ItemDetailActivity.class);
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
-            startActivity(detailIntent);
+            startActivityForResult(detailIntent,1);
         }
     }
+
     //Creamos el metodo onActivityResult por si queremos recibir cosas desde el intent
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
             if (resultCode == Activity.RESULT_OK) {
-
+                Toast.makeText(getBaseContext(), "Activity Cerrada", Toast.LENGTH_SHORT).show();
 
             }
         }
