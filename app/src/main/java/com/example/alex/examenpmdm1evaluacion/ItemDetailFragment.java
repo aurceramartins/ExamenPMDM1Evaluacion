@@ -43,7 +43,7 @@ public class ItemDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        
+
         final View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
 
         if (mItem != null) {

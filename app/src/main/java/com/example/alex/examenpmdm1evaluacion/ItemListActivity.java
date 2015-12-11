@@ -1,5 +1,6 @@
 package com.example.alex.examenpmdm1evaluacion;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -67,6 +68,16 @@ public class ItemListActivity extends AppCompatActivity
             Intent detailIntent = new Intent(this, ItemDetailActivity.class);
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
+        }
+    }
+    //Creamos el metodo onActivityResult por si queremos recibir cosas desde el intent
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+
+
+            }
         }
     }
 }
