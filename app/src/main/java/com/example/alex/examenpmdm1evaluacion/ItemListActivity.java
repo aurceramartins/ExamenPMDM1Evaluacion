@@ -50,6 +50,7 @@ public class ItemListActivity extends AppCompatActivity
             ((ItemListFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.item_list))
                     .setActivateOnItemClick(true);
+            
         }
 
     }
